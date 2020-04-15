@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // open file
+    // open the file body!
     char *input = argv[1];
     FILE *infile = fopen(input, "r");
 
 
-    // check format
+    // check format, check carefully!
     if (infile == NULL)
     {
         fprintf(stderr, "Could not open %s.\n", input);
@@ -37,17 +37,17 @@ int main(int argc, char *argv[])
      * Let find those .jpg
      */
 
-    // declare variables
+    // declare variables... blah blah
     BYTE buffer[BUFBYTE];
     int Locate_JPG = 0;
     char filename [8];
     FILE *img = NULL;
     img = newfile(img, filename, Locate_JPG, buffer);
 
-    // While we loop...
+    // While we loop...Weeee
     while (!feof(infile) && fread(&buffer, BUFBYTE, 1, infile) == true)
     {
-        //  If we find a jpg, crack open a beer and celebrate
+        //  If we find a jpg, crack open a beer and celebrate!!! 
         if (find_JPEG(buffer) == true)
         {
             // Close that file but open that bag of doritos
@@ -58,16 +58,16 @@ int main(int argc, char *argv[])
             Locate_JPG++;
         }
 
-        // if not else if sucks
+        // if not else ... what do you want from me?
         if (find_JPEG(buffer) == false)
         {
-            //if no
+            //if no, life sucks.
             if (Locate_JPG == 0)
             {
                 continue;
             }
 
-            // Let's not get confused
+            // Dump that.
             else
             {
                 fwrite(buffer, 1, BUFBYTE, img);
